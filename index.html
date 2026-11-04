@@ -76,5 +76,31 @@ footer{background:#202b63;color:white;text-align:center;padding:25px}
 
   console.log('Supabase connected!');
 </script>
+  <section id="auth-section" style="max-width:400px;margin:40px auto;padding:25px;background:#f4f7fb;border-radius:12px;">
+  <h2 id="auth-title">Create your VConn account</h2>
+
+  <input id="name" type="text" placeholder="Full Name"
+    style="width:100%;padding:12px;margin:8px 0;">
+
+  <input id="email" type="email" placeholder="Email"
+    style="width:100%;padding:12px;margin:8px 0;">
+
+  <input id="password" type="password" placeholder="Password"
+    style="width:100%;padding:12px;margin:8px 0;">
+
+  <button id="auth-button" style="padding:12px 20px;">
+    Sign Up
+  </button>
+
+  <p id="auth-message"></p>
+
+  <button id="toggle-auth" type="button">
+    Already have an account? Login
+  </button>
+
+  <button id="logout-button" type="button" hidden>
+    Logout
+  </button>
+</section>
 </body>
 </html>
