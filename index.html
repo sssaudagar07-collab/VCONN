@@ -62,5 +62,19 @@ footer{background:#202b63;color:white;text-align:center;padding:25px}
 <h3>VCONN – Volunteer Connect</h3>
 <p>Small acts. Big impact.</p>
 </footer>
+  <script type="module">
+  import { createClient } from
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const SUPABASE_URL ='https://xineaephglqibfojqmzi.supabase.co';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Z-371VtAJBng1r18SZOLGw_KFMb_SI9';
+
+  const supabase = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  console.log('Supabase connected!');
+</script>
 </body>
 </html>
