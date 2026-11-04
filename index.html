@@ -74,7 +74,69 @@ footer{background:#202b63;color:white;text-align:center;padding:25px}
     SUPABASE_PUBLISHABLE_KEY
   );
 
-  console.log('Supabase connected!');
+  const authButton = document.getElementById('auth-button');
+const toggleAuth = document.getElementById('toggle-auth');
+const authTitle = document.getElementById('auth-title');
+const authMessage = document.getElementById('auth-message');
+const logoutButton = document.getElementById('logout-button');
+
+let isLogin = false;
+
+toggleAuth.addEventListener('click', () => {
+  isLogin = !isLogin;
+
+  authTitle.textContent = isLogin ? 'Welcome Back!' : 'Create your VConn account';
+  authButton.textContent = isLogin ? 'Login' : 'Sign Up';
+  toggleAuth.textContent = isLogin
+    ? 'New here? Sign Up'
+    : 'Already have an account? Login';
+
+  document.getElementById('name').hidden = isLogin;
+  authMessage.textContent = '';
+});
+
+authButton.addEventListener('click', async () => {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+
+  authMessage.textContent = 'Please wait...';
+  authButton.disabled = true;
+
+  try {
+    if (isLogin) {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      if (error) throw error;
+      authMessage.textContent = 'Login successful!';
+    } else {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: name }
+        }
+      });
+      if (error) throw error;
+      authMessage.textContent = 'Signup successful! Check your email for verification.';
+    }
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    authButton.disabled = false;
+  }
+});
+
+logoutButton.addEventListener('click', async () => {
+  const { error } = await supabase.auth.signOut();
+  authMessage.textContent = error ? error.message : 'Logged out successfully!';
+});
+
+supabase.auth.onAuthStateChange((event, session) => {
+  logoutButton.hidden = !session;
+});
 </script>
   <section id="auth-section" style="max-width:400px;margin:40px auto;padding:25px;background:#f4f7fb;border-radius:12px;">
   <h2 id="auth-title">Create your VConn account</h2>
