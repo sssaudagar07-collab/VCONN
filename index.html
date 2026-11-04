@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VConn - Volunteer Connect</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6ff;
-      color: #20264a;
-      text-align: center;
-    }
-    header {
-      background: #303f9f;
-      color: white;
-      padding: 25px;
-    }
-    main { padding: 60px 20px; }
-    h1 { font-size: 42px; }
-    p { font-size: 18px; }
-    button {
-      background: #303f9f;
-      color: white;
-      border: 0;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VConn | Volunteer Connect</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f7f8fc;color:#20264a}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 7%;background:white;box-shadow:0 2px 10px #ddd}
+.logo{font-size:27px;font-weight:bold;color:#3546a5}
+nav a{text-decoration:none;color:#333;margin-left:22px;font-weight:600}
+.hero{text-align:center;padding:90px 20px;background:linear-gradient(120deg,#253b91,#6878d9);color:white}
+.hero h1{font-size:45px;margin-bottom:20px}
+.hero p{font-size:18px;margin-bottom:30px}
+.btn{display:inline-block;padding:14px 25px;background:#fff;color:#3546a5;border-radius:8px;text-decoration:none;font-weight:bold}
+section{padding:55px 7%;text-align:center}
+h2{font-size:30px;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:white;padding:30px 20px;border-radius:14px;box-shadow:0 4px 15px #ddd}
+.card h3{margin:15px 0;color:#3546a5}
+.card p{color:#666;line-height:1.6}
+footer{background:#202b63;color:white;text-align:center;padding:25px}
+@media(max-width:600px){nav{flex-direction:column;gap:15px}nav a{margin:5px}.hero h1{font-size:32px}}
+</style>
 </head>
 <body>
-  <header>
-    <h2>VCONN</h2>
-    Volunteer Connect Platform
-  </header>
-  <main>
-    <h1>Connect. Volunteer. Make a Difference.</h1>
-    <p>Discover opportunities and make your community better.</p>
-    <button onclick="alert('Welcome to VConn!')">Explore Opportunities</button>
-  </main>
+<nav>
+<div class="logo">VCONN</div>
+<div>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#categories">Explore</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>Connect. Volunteer. Make a Difference.</h1>
+<p>Discover opportunities, help people and build a better community.</p>
+<a href="#categories" class="btn">Explore Opportunities →</a>
+</div>
+
+<section id="about">
+<h2>Welcome to VConn</h2>
+<p>VConn connects people who want to make a difference with meaningful volunteering opportunities.</p>
+</section>
+
+<section id="categories">
+<h2>Explore Volunteer Categories</h2>
+<div class="cards">
+<div class="card"><h3>📚 Education</h3><p>Help students learn and grow.</p></div>
+<div class="card"><h3>🌱 Environment</h3><p>Protect nature and keep surroundings clean.</p></div>
+<div class="card"><h3>❤️ Healthcare</h3><p>Support health and awareness activities.</p></div>
+<div class="card"><h3>🐾 Animal Welfare</h3><p>Care for animals in need.</p></div>
+<div class="card"><h3>🍲 Food Distribution</h3><p>Help provide food to those in need.</p></div>
+<div class="card"><h3>🤝 Community Service</h3><p>Bring positive change to society.</p></div>
+</div>
+</section>
+
+<footer id="contact">
+<h3>VCONN – Volunteer Connect</h3>
+<p>Small acts. Big impact.</p>
+</footer>
 </body>
 </html>
